@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Todo App</title>
+</head>
+<body>
+    <h1>Todo List</h1>
+    <form action="/add" method="POST">
+        <input type="text" name="content" required>
+        <button type="submit">Ekle</button>
+    </form>
+    <hr>
+    <ul>
+        {% for todo in todos %}
+        <li>
+            <form action="/delete/{{ todo.id }}">
+                <span>{{ todo.content }}</span>
+                <button type="submit">Sil</button>
+            </form>
+            <form action="/update/{{ todo.id }}" method="POST">
+                <input type="text" name="content" value="{{ todo.content }}" required>
+                <button type="submit">Güncelle</button>
+            </form>
+        </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
