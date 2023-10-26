@@ -5,7 +5,7 @@ app = Flask(_name_)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://username:password@localhost/todoapp'  # PostgreSQL bağlantı URL'sini buraya girin
 db = SQLAlchemy(app)
 
-# Todo modeli
+# Todo model
 class Todo(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     content = db.Column(db.String(200), nullable=False)
